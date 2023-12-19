@@ -31,11 +31,12 @@ const arrayImages = [
 
 const container = document.querySelector (".container");
 console.log (container);
+const thumbnailContainer = document.querySelector (".thumbnail-container");
 
 let currentSlideIndex = 0;
 console.log (currentSlideIndex);
 
-for ( let i = 0; i < arrayImages.length; i++) {
+for (let i = 0; i < arrayImages.length; i++) {
     console.log (arrayImages[i]);
 
     container.innerHTML +=
@@ -51,9 +52,38 @@ for ( let i = 0; i < arrayImages.length; i++) {
                     ${arrayImages[i]['description']}
                 </p>
             </div>
-        </div>`;
+        </div>
+        `;
+
+    thumbnailContainer.innerHTML += `
+    <div>
+        <a target="_blank" href="${arrayImages[i]['url']}">
+            <div>
+                <img src="${arrayImages[i]['url']}" alt="">
+            </div>
+        </a>
+    </div>
+    `;
+
     console.log(container);
+    console.log(thumbnailContainer);
+
 };
+
+thumbnailContainer.addEventListener ("change", function() {
+    console.log(currentSlideIndex);
+    displayPics[currentSlideIndex].classList.remove("activate");
+    if (currentSlideIndex < (displayPics.length-1)){
+        currentSlideIndex++;
+    }
+    else {
+        currentSlideIndex = 0;
+    }
+    displayPics[currentSlideIndex].classList.add("activate");
+
+    //displayPics[currentSlideIndex].classList.add("activate");
+    //currentSlideIndex++;
+});
 
 let displayPics = document.getElementsByClassName("item");
 displayPics[currentSlideIndex].classList.add("activate");
@@ -86,6 +116,23 @@ buttonUp.addEventListener ("click", function() {
     displayPics[currentSlideIndex].classList.add("activate");
     
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ALTRI MODI PER FARE IL CICLO FOR ESERCIZIO
 
 /* for (let key in arrayImages[i]) {
         console.log(arrayImages[i][key]);
