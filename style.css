@@ -75,10 +75,16 @@ img {
 }
 
 .thumbnail-container {
+    background-color: black;
     display: flex;
     flex-direction: column;
     width: 200px;
     height: 550px;
+    opacity: 0.5;
 }
 
+.thumbnail-active {
+    display: block;
+    border: 1px solid red;
+}
 

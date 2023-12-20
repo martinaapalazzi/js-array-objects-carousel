@@ -56,12 +56,8 @@ for (let i = 0; i < arrayImages.length; i++) {
         `;
 
     thumbnailContainer.innerHTML += `
-    <div>
-        <a target="_blank" href="${arrayImages[i]['url']}">
-            <div>
-                <img src="${arrayImages[i]['url']}" alt="">
-            </div>
-        </a>
+    <div class="thumbnail-active">
+        <img src="${arrayImages[i]['url']}" alt="">
     </div>
     `;
 
@@ -70,29 +66,19 @@ for (let i = 0; i < arrayImages.length; i++) {
 
 };
 
-thumbnailContainer.addEventListener ("change", function() {
-    console.log(currentSlideIndex);
-    displayPics[currentSlideIndex].classList.remove("activate");
-    if (currentSlideIndex < (displayPics.length-1)){
-        currentSlideIndex++;
-    }
-    else {
-        currentSlideIndex = 0;
-    }
-    displayPics[currentSlideIndex].classList.add("activate");
-
-    //displayPics[currentSlideIndex].classList.add("activate");
-    //currentSlideIndex++;
-});
-
 let displayPics = document.getElementsByClassName("item");
 displayPics[currentSlideIndex].classList.add("activate");
 console.log (displayPics);
+
+let allThumbnails = document.getElementsByClassName("thumbnail-active");
+allThumbnails[currentSlideIndex].classList.add("thummbnail-active");
+console.log (allThumbnails);
 
 const buttonDown = document.querySelector (".button-down");
 console.log (buttonDown);
 buttonDown.addEventListener ("click", function() {
     console.log(currentSlideIndex);
+    displayPics[currentSlideIndex].classList.remove("thumbnail-active");
     displayPics[currentSlideIndex].classList.remove("activate");
     if (currentSlideIndex < (displayPics.length-1)){
         currentSlideIndex++;
@@ -100,12 +86,14 @@ buttonDown.addEventListener ("click", function() {
     else {
         currentSlideIndex = 0;
     }
+    displayPics[currentSlideIndex].classList.add("thumbnail-active");
     displayPics[currentSlideIndex].classList.add("activate");
 });
 
 const buttonUp = document.querySelector (".button-up");
 console.log (buttonUp);
 buttonUp.addEventListener ("click", function() {
+    displayPics[currentSlideIndex].classList.remove("thumbnail-active");
     displayPics[currentSlideIndex].classList.remove("activate");
     if (currentSlideIndex > 0 ) {
         currentSlideIndex--;
@@ -113,6 +101,7 @@ buttonUp.addEventListener ("click", function() {
     else {
         currentSlideIndex = (displayPics.length - 1);
     }
+    displayPics[currentSlideIndex].classList.add("thumbnail-active");
     displayPics[currentSlideIndex].classList.add("activate");
     
 });
