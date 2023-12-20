@@ -16,17 +16,18 @@ img {
 
 .view-container {
     height: 100vh;
+    overflow: auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: right;
-    background-color: blanchedalmond;
+    background-color: rgb(205, 243, 255);
 }
 
 .container {
     width: 800px;
-    margin: 10px;
+    display: flex;
 }
 
 .item {
@@ -36,6 +37,11 @@ img {
 
 .activate {
     display: block;
+}
+
+.img-container {
+    width: 700px;
+    height: 550px;
 }
 
 .description-container {
@@ -66,6 +72,13 @@ img {
     /* 
     width: 30px;
     height: 30px; */
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 550px;
 }
 
 
